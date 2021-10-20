@@ -1,3 +1,3 @@
 Denne mappen inneholder forespørsler og dashbord som ble vist på Certification Update - Side Panels 20.10.2021.
-Hver mappe inneholder hovedforespørselen som med nødvendige endringer i Navigasjon. 
-I tillegg finnes en undermappe for nødvendige egendefinerte forespørsler og dashbord.
+Hver mappe inneholder standardforespørselen med nødvendige endringer i Navigasjon til sidepaneler.
+I tillegg finnes en undermappe for alle egendefinerte forespørsler og dashbord.
