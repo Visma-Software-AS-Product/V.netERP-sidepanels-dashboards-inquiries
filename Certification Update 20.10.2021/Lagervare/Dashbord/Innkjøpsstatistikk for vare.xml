@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<data-set>
+  <relations format-version="3" relations-version="20160101" main-table="Dashboard">
+    <link from="DashboardParameter (DashboardID)" to="Dashboard (DashboardID)" />
+    <link from="DashboardParameter (NoteID)" to="DashboardParameterKvExt (RecordID)" type="RowKvExt" />
+    <link from="Widget (DashboardID)" to="Dashboard (DashboardID)" type="WeakIfEmpty" isEmpty="OwnerName" />
+    <link from="SiteMap (ScreenID)" to="Dashboard (ScreenID)" />
+    <link from="SiteMap (NodeID)" to="SiteMap (ParentID)" type="WeakToParent" recursive-nesting="yes" include-parents="False" />
+    <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
+    <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
+    <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
+    <link from="MUITile (ScreenID)" to="SiteMap (ScreenID)" />
+    <link from="MUIWorkspace (WorkspaceID)" to="MUITile (WorkspaceID)" type="FromMaster" linkname="workspaceToTile" split-location="yes" updateable="True" />
+    <link from="MUIArea (AreaID)" to="MUIWorkspace (AreaID)" type="FromMaster" updateable="True" />
+    <link from="MUIPinnedScreen (NodeID, WorkspaceID)" to="MUIScreen (NodeID, WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+    <link from="MUIFavoriteWorkspace (WorkspaceID)" to="MUIWorkspace (WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+  </relations>
+  <layout>
+    <table name="Dashboard">
+      <table name="DashboardParameter" uplink="(DashboardID) = (DashboardID)">
+        <table name="DashboardParameterKvExt" uplink="(NoteID) = (RecordID)" />
+      </table>
+      <table name="Widget" uplink="(DashboardID) = (DashboardID)" />
+      <table name="SiteMap" uplink="(ScreenID) = (ScreenID)" recursion="(NodeID) = (ParentID)">
+        <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+          <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+        </table>
+        <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+      </table>
+    </table>
+    <table name="MUIWorkspace">
+      <table name="MUIFavoriteWorkspace" uplink="(WorkspaceID) = (WorkspaceID)" />
+    </table>
+    <table name="MUISubcategory" />
+    <table name="MUIArea" />
+  </layout>
+  <data>
+    <Dashboard>
+      <row DashboardID="123" Name="Innkjøpsstatistikk for vare" DefaultOwnerRole="Financials Administrator (Default)" ScreenID="DB500014" AllowCopy="1" Workspace1Size="0" Workspace2Size="0" IsPortal="0" ExposeViaMobile="0" DashboardCode="7f565f3d-e329-4deb-965f-aa9a6497cc27">
+        <DashboardParameter LineNbr="1" Name="Varenr" IsActive="1" Required="0" ObjectName="PX.Objects.IN.InventoryItem" FieldName="InventoryCD" DisplayName="Varenr" IsExpression="0" ColSpan="1" NoteID="9c883acf-d330-ec11-831e-064abb339360" />
+        <Widget WidgetID="1165" Caption="Antall i innkjøp på vent" Column="0" Row="1" Workspace="0" Width="6" Height="250" Type="PX.Dashboards.Widgets.PXScorecardWidget" Settings="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&#xD;&#xA;&lt;ScorecardSettings&gt;&#xD;&#xA;  &lt;InquiryScreenID&gt;GI001003&lt;/InquiryScreenID&gt;&#xD;&#xA;  &lt;AggregateField&gt;POLine_orderQty&lt;/AggregateField&gt;&#xD;&#xA;  &lt;AggregateFunction&gt;SUM&lt;/AggregateFunction&gt;&#xD;&#xA;  &lt;NormalColor&gt;#ffc109&lt;/NormalColor&gt;&#xD;&#xA;  &lt;WarningColor&gt;#ffc109&lt;/WarningColor&gt;&#xD;&#xA;  &lt;ErrorColor&gt;#ffc109&lt;/ErrorColor&gt;&#xD;&#xA;  &lt;NormalLevel&gt;0&lt;/NormalLevel&gt;&#xD;&#xA;  &lt;ErrorLevel&gt;0&lt;/ErrorLevel&gt;&#xD;&#xA;  &lt;Icon&gt;date_range&lt;/Icon&gt;&#xD;&#xA;  &lt;FilterRows&gt;&#xD;&#xA;    &lt;WidgetFilterRow&gt;&#xD;&#xA;      &lt;LineNbr&gt;1&lt;/LineNbr&gt;&#xD;&#xA;      &lt;IsActive&gt;true&lt;/IsActive&gt;&#xD;&#xA;      &lt;OpenBrackets&gt;0&lt;/OpenBrackets&gt;&#xD;&#xA;      &lt;DataField&gt;POLine_inventoryID&lt;/DataField&gt;&#xD;&#xA;      &lt;Condition&gt;0&lt;/Condition&gt;&#xD;&#xA;      &lt;IsParameter&gt;true&lt;/IsParameter&gt;&#xD;&#xA;      &lt;Value1&gt;Varenr&lt;/Value1&gt;&#xD;&#xA;      &lt;CloseBrackets&gt;0&lt;/CloseBrackets&gt;&#xD;&#xA;      &lt;Operation&gt;A&lt;/Operation&gt;&#xD;&#xA;    &lt;/WidgetFilterRow&gt;&#xD;&#xA;    &lt;WidgetFilterRow&gt;&#xD;&#xA;      &lt;LineNbr&gt;2&lt;/LineNbr&gt;&#xD;&#xA;      &lt;IsActive&gt;true&lt;/IsActive&gt;&#xD;&#xA;      &lt;OpenBrackets&gt;0&lt;/OpenBrackets&gt;&#xD;&#xA;      &lt;DataField&gt;POOrder_status&lt;/DataField&gt;&#xD;&#xA;      &lt;Condition&gt;0&lt;/Condition&gt;&#xD;&#xA;      &lt;IsParameter&gt;false&lt;/IsParameter&gt;&#xD;&#xA;      &lt;Value1&gt;H&lt;/Value1&gt;&#xD;&#xA;      &lt;CloseBrackets&gt;0&lt;/CloseBrackets&gt;&#xD;&#xA;      &lt;Operation&gt;A&lt;/Operation&gt;&#xD;&#xA;    &lt;/WidgetFilterRow&gt;&#xD;&#xA;  &lt;/FilterRows&gt;&#xD;&#xA;&lt;/ScorecardSettings&gt;" NoteID="7ab9adce-d430-ec11-831e-064abb339360" />
+        <Widget WidgetID="1164" Caption="Antall i åpne innkjøp" Column="0" Row="0" Workspace="0" Width="6" Height="250" Type="PX.Dashboards.Widgets.PXScorecardWidget" Settings="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&#xD;&#xA;&lt;ScorecardSettings&gt;&#xD;&#xA;  &lt;InquiryScreenID&gt;GI001003&lt;/InquiryScreenID&gt;&#xD;&#xA;  &lt;AggregateField&gt;POLine_orderQty&lt;/AggregateField&gt;&#xD;&#xA;  &lt;AggregateFunction&gt;SUM&lt;/AggregateFunction&gt;&#xD;&#xA;  &lt;NormalColor&gt;#17a2b8&lt;/NormalColor&gt;&#xD;&#xA;  &lt;WarningColor&gt;#17a2b8&lt;/WarningColor&gt;&#xD;&#xA;  &lt;ErrorColor&gt;#17a2b8&lt;/ErrorColor&gt;&#xD;&#xA;  &lt;NormalLevel&gt;0&lt;/NormalLevel&gt;&#xD;&#xA;  &lt;ErrorLevel&gt;0&lt;/ErrorLevel&gt;&#xD;&#xA;  &lt;Icon&gt;shopping_cart&lt;/Icon&gt;&#xD;&#xA;  &lt;FilterRows&gt;&#xD;&#xA;    &lt;WidgetFilterRow&gt;&#xD;&#xA;      &lt;LineNbr&gt;1&lt;/LineNbr&gt;&#xD;&#xA;      &lt;IsActive&gt;true&lt;/IsActive&gt;&#xD;&#xA;      &lt;OpenBrackets&gt;0&lt;/OpenBrackets&gt;&#xD;&#xA;      &lt;DataField&gt;POLine_inventoryID&lt;/DataField&gt;&#xD;&#xA;      &lt;Condition&gt;0&lt;/Condition&gt;&#xD;&#xA;      &lt;IsParameter&gt;true&lt;/IsParameter&gt;&#xD;&#xA;      &lt;Value1&gt;Varenr&lt;/Value1&gt;&#xD;&#xA;      &lt;CloseBrackets&gt;0&lt;/CloseBrackets&gt;&#xD;&#xA;      &lt;Operation&gt;A&lt;/Operation&gt;&#xD;&#xA;    &lt;/WidgetFilterRow&gt;&#xD;&#xA;    &lt;WidgetFilterRow&gt;&#xD;&#xA;      &lt;LineNbr&gt;2&lt;/LineNbr&gt;&#xD;&#xA;      &lt;IsActive&gt;true&lt;/IsActive&gt;&#xD;&#xA;      &lt;OpenBrackets&gt;0&lt;/OpenBrackets&gt;&#xD;&#xA;      &lt;DataField&gt;POOrder_status&lt;/DataField&gt;&#xD;&#xA;      &lt;Condition&gt;0&lt;/Condition&gt;&#xD;&#xA;      &lt;IsParameter&gt;false&lt;/IsParameter&gt;&#xD;&#xA;      &lt;Value1&gt;N&lt;/Value1&gt;&#xD;&#xA;      &lt;CloseBrackets&gt;0&lt;/CloseBrackets&gt;&#xD;&#xA;      &lt;Operation&gt;A&lt;/Operation&gt;&#xD;&#xA;    &lt;/WidgetFilterRow&gt;&#xD;&#xA;  &lt;/FilterRows&gt;&#xD;&#xA;&lt;/ScorecardSettings&gt;" NoteID="52280bdd-d330-ec11-831e-064abb339360" />
+        <SiteMap>
+          <row Position="343.5" Title="Innkjøpsstatistikk for vare" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" NodeID="d485721a-5606-49f5-bcbe-a8273a822a3e" ParentID="ba079e03-733b-404b-95a5-6aba3f31997b">
+            <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="658" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" />
+            <SiteMap Position="178" Title="Reports" Description="main@ReportF" Expanded="0" IsFolder="0" NodeID="ba079e03-733b-404b-95a5-6aba3f31997b">
+              <SiteMap Position="518.5" Title="Inventory" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="IN000000" NodeID="c5287576-cb3b-4f96-910b-2cba16a600ad">
+                <SiteMap Position="7.5" Title="Distribution" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="DS000000" NodeID="91d578ba-75b6-4fa9-a532-9457a6383a62">
+                  <SiteMap Position="3.5" Title="Sitemap Root" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="00000000" NodeID="00000000-0000-0000-0000-000000000000" />
+                </SiteMap>
+              </SiteMap>
+            </SiteMap>
+          </row>
+        </SiteMap>
+      </row>
+    </Dashboard>
+    <MUIWorkspace>
+      <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="56" Title="Data Views" Icon="poll" IsSystem="1">
+        <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+      </row>
+    </MUIWorkspace>
+    <MUISubcategory>
+      <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboard" Icon="" IsSystem="1" />
+    </MUISubcategory>
+  </data>
+</data-set>

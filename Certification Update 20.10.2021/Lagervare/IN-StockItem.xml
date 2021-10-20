@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<data-set>
+  <relations format-version="3" relations-version="20170805" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
+    <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GIMassUpdateField (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GINavigationScreen (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GINavigationParameter (DesignID, ScreenID)" to="GINavigationScreen (DesignID, ScreenID)" />
+    <link from="GIOn (DesignID, RelationNbr)" to="GIRelation (DesignID, LineNbr)" />
+    <link from="GIRecordDefault (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GIRelation (DesignID, ParentTable)" to="GITable (DesignID, Alias)" />
+    <link from="GIRelation (DesignID, ChildTable)" to="GITable (DesignID, Alias)" />
+    <link from="GIResult (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GIResult (ObjectName, DesignID)" to="GITable (Alias, DesignID)" />
+    <link from="GISort (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GITable (DesignID)" to="GIDesign (DesignID)" />
+    <link from="GIWhere (DesignID)" to="GIDesign (DesignID)" />
+    <link from="SiteMap (Url)" to="GIDesign (DesignID)" type="WeakByUrl" linkname="toDesignById" baseurl="~/GenericInquiry/GenericInquiry.aspx" paramnames="id" />
+    <link from="SiteMap (Url)" to="GIDesign (Name)" type="WeakByUrl" linkname="toDesignByName" baseurl="~/GenericInquiry/GenericInquiry.aspx" />
+    <link from="ListEntryPoint (ListScreenID)" to="SiteMap (ScreenID)" />
+    <link from="SiteMap (ScreenID)" to="GIDesign (PrimaryScreenIDNew)" linkname="to1Screen" />
+    <link from="SiteMap (NodeID)" to="SiteMap (ParentID)" type="WeakToParent" recursive-nesting="yes" include-parents="False" />
+    <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
+    <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
+    <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
+    <link from="MUITile (ScreenID)" to="SiteMap (ScreenID)" />
+    <link from="MUIWorkspace (WorkspaceID)" to="MUITile (WorkspaceID)" type="FromMaster" linkname="workspaceToTile" split-location="yes" updateable="True" />
+    <link from="MUIArea (AreaID)" to="MUIWorkspace (AreaID)" type="FromMaster" updateable="True" />
+    <link from="MUIPinnedScreen (NodeID, WorkspaceID)" to="MUIScreen (NodeID, WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+    <link from="MUIFavoriteWorkspace (WorkspaceID)" to="MUIWorkspace (WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+    <link from="GIDesign (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIFilter (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIFilter (NoteID)" to="GIFilterKvExt (RecordID)" type="RowKvExt" />
+    <link from="GIGroupBy (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIOn (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIRelation (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIResult (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIResult (NoteID)" to="GIResultKvExt (RecordID)" type="RowKvExt" />
+    <link from="GISort (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GITable (NoteID)" to="Note (NoteID)" type="Note" />
+    <link from="GIWhere (NoteID)" to="Note (NoteID)" type="Note" />
+  </relations>
+  <layout>
+    <table name="GIDesign">
+      <table name="GIFilter" uplink="(DesignID) = (DesignID)">
+        <table name="Note" uplink="(NoteID) = (NoteID)" />
+        <table name="GIFilterKvExt" uplink="(NoteID) = (RecordID)" />
+      </table>
+      <table name="GIGroupBy" uplink="(DesignID) = (DesignID)">
+        <table name="Note" uplink="(NoteID) = (NoteID)" />
+      </table>
+      <table name="GIMassAction" uplink="(DesignID) = (DesignID)" />
+      <table name="GIMassUpdateField" uplink="(DesignID) = (DesignID)" />
+      <table name="GINavigationScreen" uplink="(DesignID) = (DesignID)">
+        <table name="GINavigationParameter" uplink="(DesignID, ScreenID) = (DesignID, ScreenID)" />
+      </table>
+      <table name="GIRecordDefault" uplink="(DesignID) = (DesignID)" />
+      <table name="GISort" uplink="(DesignID) = (DesignID)">
+        <table name="Note" uplink="(NoteID) = (NoteID)" />
+      </table>
+      <table name="GITable" uplink="(DesignID) = (DesignID)">
+        <table name="GIRelation" uplink="(DesignID, Alias) = (DesignID, ParentTable)">
+          <table name="GIOn" uplink="(DesignID, LineNbr) = (DesignID, RelationNbr)">
+            <table name="Note" uplink="(NoteID) = (NoteID)" />
+          </table>
+          <table name="Note" uplink="(NoteID) = (NoteID)" />
+        </table>
+        <table name="GIResult" uplink="(Alias, DesignID) = (ObjectName, DesignID)">
+          <table name="Note" uplink="(NoteID) = (NoteID)" />
+          <table name="GIResultKvExt" uplink="(NoteID) = (RecordID)" />
+        </table>
+        <table name="Note" uplink="(NoteID) = (NoteID)" />
+      </table>
+      <table name="GIWhere" uplink="(DesignID) = (DesignID)">
+        <table name="Note" uplink="(NoteID) = (NoteID)" />
+      </table>
+      <table name="SiteMap" uplink="(DesignID) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignById">
+        <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+        <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+          <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+        </table>
+        <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+      </table>
+      <table name="SiteMap" uplink="(Name) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignByName">
+        <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+        <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+          <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+        </table>
+        <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+      </table>
+      <table name="SiteMap" uplink="(PrimaryScreenIDNew) = (ScreenID)" recursion="(NodeID) = (ParentID)" linkname="to1Screen">
+        <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+        <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+          <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+        </table>
+        <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+      </table>
+      <table name="Note" uplink="(NoteID) = (NoteID)" />
+    </table>
+    <table name="MUIWorkspace">
+      <table name="MUIFavoriteWorkspace" uplink="(WorkspaceID) = (WorkspaceID)" />
+    </table>
+    <table name="MUISubcategory" />
+    <table name="MUIArea" />
+  </layout>
+  <data>
+    <GIDesign>
+      <row DesignID="e4352bbd-a53a-42c4-9b96-e9f0fda070c7" Name="IN-StockItem" SelectTop="0" FilterColCount="3" PageSize="500" PrimaryScreenIDNew="IN202500" NewRecordCreationEnabled="1" MassDeleteEnabled="1" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="0" ExposeViaOData="0" ExposeViaMobile="0">
+        <GINavigationScreen ScreenID="IN401000" WindowMode="L" Icon="format_list_numbered">
+          <GINavigationParameter ParamID="495" FieldName="SiteID" ParameterName="1" IsExpression="1" />
+          <GINavigationParameter ParamID="494" FieldName="InventoryID" ParameterName="InventoryItem.inventoryID" IsExpression="0" />
+        </GINavigationScreen>
+        <GINavigationScreen ScreenID="IN202500" WindowMode="I">
+          <GINavigationParameter ParamID="46" FieldName="InventoryCD" ParameterName="InventoryItem.InventoryCD" IsExpression="0" />
+        </GINavigationScreen>
+        <GINavigationScreen ScreenID="GI001005" WindowMode="L" Icon="filter_list">
+          <GINavigationParameter ParamID="493" FieldName="INKitSpecStkDet_kitInventoryID" ParameterName="InventoryItem.inventoryID" IsExpression="0" />
+        </GINavigationScreen>
+        <GINavigationScreen ScreenID="DB500014" WindowMode="L" Icon="apps">
+          <GINavigationParameter ParamID="496" FieldName="Varenr" ParameterName="InventoryItem.inventoryCD" IsExpression="0" />
+        </GINavigationScreen>
+        <GISort LineNbr="1" IsActive="1" DataFieldName="InventoryItem.inventoryCD" SortOrder="A" />
+        <GITable Alias="InventoryItem" Name="PX.Objects.IN.InventoryItem">
+          <GIRelation LineNbr="2" ChildTable="BAccountR" IsActive="1" JoinType="L">
+            <GIOn LineNbr="2" ParentField="preferredVendorID" Condition="E " ChildField="bAccountID" Operation="O" />
+          </GIRelation>
+          <GIRelation LineNbr="1" ChildTable="INItemClass" IsActive="1" JoinType="L">
+            <GIOn LineNbr="1" ParentField="itemClassID" Condition="E " ChildField="itemClassID" Operation="A" />
+          </GIRelation>
+          <GIResult LineNbr="31" IsActive="1" Field="VG_Attributes" Caption="Varegruppe" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="33c99381-f124-4032-a3cd-f7d7aa4d5880">
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Varegruppe" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Varegruppe" />
+          </GIResult>
+          <GIResult LineNbr="30" IsActive="1" Field="lastStdCost" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="bb3353d9-bd89-4b36-a9d1-b0029c94679d" />
+          <GIResult LineNbr="29" IsActive="1" Field="lastModifiedDateTime" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="3ecf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Senast ändrad" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Laatst gewijzigd op" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Sist endret" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Viimeksi muokattu" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Last modified" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Sidst ændret" />
+          </GIResult>
+          <GIResult LineNbr="28" IsActive="1" Field="lastModifiedByID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="3dcf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Senast ändrad av" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Laatst gewijzigd door" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Sist endret av" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Viimeinen muokkaaja" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Last modified by" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Sidst ændret af" />
+          </GIResult>
+          <GIResult LineNbr="27" IsActive="1" Field="createdDateTime" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="3ccf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Skapad den" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Aangemaakt op" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Opprettet" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Muodostusaika" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Created on" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="oprettelsesdato/tid" />
+          </GIResult>
+          <GIResult LineNbr="26" IsActive="1" Field="createdByID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="3bcf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Skapad av" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Aangemaakt door" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Opprettet av" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tekijä" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Created by" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="oprettet af" />
+          </GIResult>
+          <GIResult LineNbr="25" IsActive="1" Field="itemStatus" Width="100" IsVisible="1" DefaultNav="1" QuickFilter="1" RowID="3acf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Artikelstatus" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Artikelstatus" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Varestatus" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tuotteen tila" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Item status" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Varestatus" />
+          </GIResult>
+          <GIResult LineNbr="24" IsActive="1" Field="productManagerID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="39cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Artikelansvarig" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Artikelbeheer" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Produktsjef" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tuotepäällikkö" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Product manager" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Produktansvarlig" />
+          </GIResult>
+          <GIResult LineNbr="23" IsActive="1" Field="productWorkgroupID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="38cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Artikelarbetsgrupp" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Werkgroep artikel" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Produktarbeidsgruppe" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tuotetyöryhmä" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Workgroup" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Produktarbejdsgruppe" />
+          </GIResult>
+          <GIResult LineNbr="22" IsActive="1" Field="priceManagerID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="37cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Prisansvarig" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Beheerder prijs" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Prisansvarlig" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Hinnoitteluvastaava" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Price manager" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Prisansvarlig" />
+          </GIResult>
+          <GIResult LineNbr="21" IsActive="1" Field="priceWorkgroupID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="36cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Prisarbetsgrupp" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Werkgroep prijs" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Prisadgangsgruppe" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Hinnoittelutyöryhmä" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Price workgroup" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Prisarbejdsgruppe" />
+          </GIResult>
+          <GIResult LineNbr="20" IsActive="1" Field="priceClassID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="35cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Prisklass" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Prijstype" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Prisgruppe" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Hintaluokka" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Price class" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Prisklasse" />
+          </GIResult>
+          <GIResult LineNbr="19" IsActive="1" Field="movementClassID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="34cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Förändringsklass" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Omlooptype" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Omløpsklasse" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Varastonkiertolaji" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Movement class" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Bevægelsesklasse" />
+          </GIResult>
+          <GIResult LineNbr="18" IsActive="1" Field="preferredVendorID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="33cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Standardleverantör" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Standaard crediteur" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Standardleverandør" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Ensisij. toimittaja" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Default supplier" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Standardleverandør" />
+          </GIResult>
+          <GIResult LineNbr="17" IsActive="1" Field="markupPct" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="32cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Pålägg i %" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Opslagpercentage" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Påslag i %" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Kate" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Mark-up (%)" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Avance i %" />
+          </GIResult>
+          <GIResult LineNbr="16" IsActive="1" Field="pendingStdCost" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="31cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Nytt inpris" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Voorstel kostprijs" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Ny kostpris" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Odottava ostohinta" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Pending cost" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Ny kostpris" />
+          </GIResult>
+          <GIResult LineNbr="15" IsActive="1" Field="stdCost" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="30cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Inpris standardkostnad" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Huidige kostprijs" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Gjeldende kostpris" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Ostohinta" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Current cost" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Standardpris" />
+          </GIResult>
+          <GIResult LineNbr="14" IsActive="1" Field="basePrice" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="2fcf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Standardpris" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Standaardprijs" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Standardpris" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Perushinta" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Default price" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Basispris" />
+          </GIResult>
+          <GIResult LineNbr="13" IsActive="1" Field="purchaseUnit" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="2ecf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Inköpsenhet" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Inkoopeenheid" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Innkjøpsenhet" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Ostoyksikkö" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Purchase unit" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Indkøbsenhed" />
+          </GIResult>
+          <GIResult LineNbr="12" IsActive="1" Field="salesUnit" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="2dcf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Försäljningsenhet" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Verkoopeenheid" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Salgsenhet" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Myyntiyksikkö" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Sales unit" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Salgsenhed" />
+          </GIResult>
+          <GIResult LineNbr="11" IsActive="1" Field="baseUnit" Width="50" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="2ccf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Basenhet" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Basiseenheid" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Basisenhet" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Perusyksikkö" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Base unit" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Basisenhed" />
+          </GIResult>
+          <GIResult LineNbr="10" IsActive="1" Field="dfltSiteID" Width="100" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="2bcf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Standardlager" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Standaardmagazijn" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Standard lagersted" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Oletuspaikka" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Default warehouse" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Standardlager" />
+          </GIResult>
+          <GIResult LineNbr="9" IsActive="1" Field="valMethod" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="2acf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Lagervärderingsmetod" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Waarderingsmethode" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Lagerverdimetode" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Arvostustapa" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Valuation method" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Vurderingsmetode" />
+          </GIResult>
+          <GIResult LineNbr="8" IsActive="1" Field="lotSerClassID" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="29cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Parti-/serieklass" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Partij-/serietype" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Parti-/serieklasse" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Erä-/sarjaluokka" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Lot/serial class" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Parti-/serieklasse" />
+          </GIResult>
+          <GIResult LineNbr="7" IsActive="1" Field="taxCategoryID" Width="100" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="28cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Kategori" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Btw-categorie" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Avgiftskode" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Veroluokka" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="VAT category" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Momskategori" />
+          </GIResult>
+          <GIResult LineNbr="6" IsActive="1" Field="postClassID" Width="100" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="27cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Bokföringsklass" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Boekingstype" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Posteringsklasse" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tiliöintiluokka" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Posting class" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Posteringsklasse" />
+          </GIResult>
+          <GIResult LineNbr="5" IsActive="1" Field="itemClassID" Width="100" IsVisible="1" DefaultNav="0" QuickFilter="1" RowID="26cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Artikelklass" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Artikeltype" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Vareprofil" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tuoteluokka" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Item class" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Vareklasse" />
+          </GIResult>
+          <GIResult LineNbr="4" IsActive="1" Field="kitItem" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="25cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Strukturartikel" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Is een stuklijst" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Er en pakke" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Pakettituote" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Is a kit" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Kit" />
+          </GIResult>
+          <GIResult LineNbr="3" IsActive="1" Field="itemType" Width="100" IsVisible="1" DefaultNav="0" QuickFilter="1" RowID="24cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Typ" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Soort" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Type" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tuotteen tyyppi" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Type" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Varetype" />
+          </GIResult>
+          <GIResult LineNbr="2" IsActive="1" Field="descr" Width="200" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="23cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Beskrivning" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Omschrijving" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Beskrivelse" />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Kuvaus" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Description" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Beskrivelse" />
+          </GIResult>
+          <GIResult LineNbr="1" IsActive="1" Field="inventoryCD" Width="100" IsVisible="1" DefaultNav="0" NavigateTo="IN202500" QuickFilter="0" RowID="22cf5054-a47e-e711-82a5-6c0b84b36be4">
+            <GIResultKvExt FieldName="CaptionSV" ValueText="Artikelnummer" />
+            <GIResultKvExt FieldName="CaptionNL" ValueText="Artikel" />
+            <GIResultKvExt FieldName="CaptionNB" ValueText="Varenr." />
+            <GIResultKvExt FieldName="CaptionFI" ValueText="Tuotekoodi" />
+            <GIResultKvExt FieldName="CaptionEN" ValueText="Item ID" />
+            <GIResultKvExt FieldName="CaptionDA" ValueText="Vare" />
+          </GIResult>
+        </GITable>
+        <GITable Alias="INItemClass" Name="PX.Objects.IN.INItemClass" />
+        <GITable Alias="BAccountR" Name="PX.Objects.CR.BAccountR" />
+        <GIWhere LineNbr="1" IsActive="1" DataFieldName="InventoryItem.stkItem" Condition="E " IsExpression="0" Value1="1" Operation="A" />
+        <SiteMap linkname="toDesignById">
+          <row Position="20" Title="Stock Items" Url="~/GenericInquiry/GenericInquiry.aspx?id=e4352bbd-a53a-42c4-9b96-e9f0fda070c7" Expanded="0" IsFolder="0" ScreenID="IN2025PL" NodeID="a191afac-d5c5-48b3-a450-970d364acb26" ParentID="12167736-ae7e-46ab-8a8c-dd4b86217519">
+            <ListEntryPoint EntryScreenID="IN202500" IsActive="1" UseInLegacyUI="0" />
+            <SiteMap Position="830" Title="Primary Lists" Expanded="0" IsFolder="0" NodeID="12167736-ae7e-46ab-8a8c-dd4b86217519">
+              <SiteMap Position="74" Title="Hidden" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="HD000000" NodeID="84351bc9-bf6c-48b5-9dea-f8207283b64a">
+                <SiteMap Position="3.5" Title="Sitemap Root" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="00000000" NodeID="00000000-0000-0000-0000-000000000000" />
+              </SiteMap>
+            </SiteMap>
+          </row>
+        </SiteMap>
+        <SiteMap linkname="to1Screen">
+          <row Position="1" Title="Stock Items" Url="~/Pages/IN/IN202500.aspx" Expanded="0" IsFolder="0" NodeID="f21272b4-6f90-4504-96fd-f825b085710b" ParentID="c45494a4-36f3-479f-b2de-d4fd01816970">
+            <MUIScreen IsPortal="0" WorkspaceID="cd52c9bd-718d-4623-8a98-b41744511e4f" Order="30" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea" />
+            <MUIScreen IsPortal="0" WorkspaceID="6557c1c6-747e-45bb-9072-54f096598d61" Order="5" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea">
+              <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+            </MUIScreen>
+            <MUITile IsPortal="0" TileID="cbc7dbe6-d450-4c48-80c7-4e6ef80b5d05" WorkspaceID="cd52c9bd-718d-4623-8a98-b41744511e4f" Order="10" Title="Ny lagervare" Icon="add" Parameters="" />
+            <MUITile IsPortal="0" TileID="a6b07e24-2d8e-46e4-934b-171acfe3a791" WorkspaceID="6557c1c6-747e-45bb-9072-54f096598d61" Order="40" Title="New Stock Item" Icon="work" Parameters="" />
+            <SiteMap Position="684.5" Title="Manage" Expanded="0" IsFolder="0" NodeID="c45494a4-36f3-479f-b2de-d4fd01816970">
+              <SiteMap Position="125" Title="Work Area" Description="main@DataEntryF" Expanded="1" IsFolder="0" NodeID="dbe96dd5-6f22-47a9-9763-c224fc0b48b2">
+                <SiteMap Position="518.5" Title="Inventory" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="IN000000" NodeID="c5287576-cb3b-4f96-910b-2cba16a600ad">
+                  <SiteMap Position="7.5" Title="Distribution" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="DS000000" NodeID="91d578ba-75b6-4fa9-a532-9457a6383a62">
+                    <SiteMap Position="3.5" Title="Sitemap Root" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="00000000" NodeID="00000000-0000-0000-0000-000000000000" />
+                  </SiteMap>
+                </SiteMap>
+              </SiteMap>
+            </SiteMap>
+          </row>
+        </SiteMap>
+      </row>
+    </GIDesign>
+    <MUIWorkspace>
+      <row IsPortal="0" WorkspaceID="cd52c9bd-718d-4623-8a98-b41744511e4f" Order="147.25" Title="Montering" Icon="build" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" IsSystem="0" />
+      <row IsPortal="0" WorkspaceID="6557c1c6-747e-45bb-9072-54f096598d61" Order="284" Title="Inventory" Icon="local_shipping" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" ScreenID="WSIN0000" IsSystem="0">
+        <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+      </row>
+    </MUIWorkspace>
+    <MUISubcategory>
+      <row IsPortal="0" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea" Order="128" Name="Registers" Icon="" IsSystem="0" />
+    </MUISubcategory>
+    <MUIArea>
+      <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
+    </MUIArea>
+  </data>
+</data-set>
