@@ -1,0 +1,10 @@
+Det kom et spørsmål underveis: Kan man ha en liste med kostnadsbærere, for så å vise inngående og utgående fakturaer kontert mot den valgte kostnadsbæreren?
+Eksempel ligger her, med kostnadsbæreren "Distrikt" som segment 2 i kostnadsbærerstrengen.
+
+I denne mappen ligger tre filer: 
+  1. Faktura per distrikt.xml: Forespørsel som viser kostnadsbæreren distrikt, med alle de distriktene som finnes.
+  2. Inngående faktura per distrikt.xml: Viser inngående faktura per distrikt.
+  3. Utgående faktura per distrikt.xml: Viser utgående faktura per distrikt.
+
+Ved åpning av (1) så får man en liste over distrikter. Det er to sidepaneler som viser inngående (2) og utgående (3) fakturaer for det markerte distriktet.
+Det holder at én fakturalinje er kontert mot valgt distrikt.
