@@ -114,6 +114,9 @@
         <GINavigationScreen ScreenID="IN202500" WindowMode="I">
           <GINavigationParameter ParamID="46" FieldName="InventoryCD" ParameterName="InventoryItem.InventoryCD" IsExpression="0" />
         </GINavigationScreen>
+        <GINavigationScreen ScreenID="GI001006" WindowMode="L" Icon="dashboard">
+          <GINavigationParameter ParamID="502" FieldName="INItemXRef_inventoryID" ParameterName="InventoryItem.inventoryID" IsExpression="0" />
+        </GINavigationScreen>
         <GINavigationScreen ScreenID="GI001005" WindowMode="L" Icon="filter_list">
           <GINavigationParameter ParamID="493" FieldName="INKitSpecStkDet_kitInventoryID" ParameterName="InventoryItem.inventoryID" IsExpression="0" />
         </GINavigationScreen>
